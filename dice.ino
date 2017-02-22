@@ -3,7 +3,7 @@
 
 InternetButton b = InternetButton();
 
-int xValue;
+int xValue, yValue;
 bool rollDice = false;
 int tally []={0,0,0,0,0,0,0,0,0,0,0};
 
@@ -15,9 +15,10 @@ void setup() {
 
 void loop() {
     
+    yValue = b.readY(); //poll accelerometer for x accleration sideways)
     xValue = b.readX(); //poll accelerometer for x accleration sideways)
     
-    if (abs(xValue) > 50) 
+    if ((abs(xValue) > 50) or (abs(yValue) >50)) 
     {
         rollDice = true; //perform special check
         delay(20);
